@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300&family=Quicksand:wght@300&family=Raleway:wght@300&display=swap');
+
+.AbtUs{
+    padding-top: 7rem;
+    padding-bottom: 1rem;
+    overflow: visible;
+}
+.Dark-AbtUs{
+    background-color: var(--background-night-clr);
+    color: var(--text-night-clr);
+    transition: all 200ms ease-in-out;
+
+}
+.Light-AbtUs{
+    background-color: var(--background-day-clr);
+    color: var(--text-day-clr);
+    transition: all 200ms ease-in-out;
+
+}
+h1{
+    font-size: xx-large;
+    font-family: var(--font-heading);
+    margin-top: 3rem;
+}
+h1 span:nth-child(2){
+    font-size: 42px;
+    padding-left: 3px;
+}
+.Heading{
+    font-size: 40px;
+    font-weight: bolder;
+    background-image: linear-gradient(90deg, var(--primary-day-clr), var(--accent-day-clr), var(--secondary-day-clr));
+    /* text-shadow: 0px 0px 2px var(--primary-day-clr); */
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    user-select: none;
+}
+.Header-Info{
+    font-size: 25px;
+    font-family: var(--font-content);
+    /* text-align: left; */
+    padding-left: 1.8rem;
+    padding-right: 1.8rem;
+    /* text-indent: 3rem; */
+    padding-top: auto;
+    padding-bottom: auto;
+}
+.Description{
+    font-size: 25px;
+    font-family: var(--font-content);
+    padding-left: 1.8rem;
+    padding-right: 1.8rem;
+    padding-top: auto;
+    padding-bottom: auto;
+}
+@media screen and (max-width: 1000px) {
+    .AbtUs{
+        padding-top: 4rem;
+    }
+}

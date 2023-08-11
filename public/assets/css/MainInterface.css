@@ -1,0 +1,471 @@
+.Header-section {
+  text-align: center;
+  width: 100vw;
+}
+.Dark-effect{
+  box-shadow: 0 5px 10px #211122;
+}
+.Light-effect{
+  box-shadow: 0 5px 10px #edddee;
+
+}
+.Nav-Holder {
+  position: fixed;
+  top: 0;
+  z-index: 10;
+}
+nav {
+  position: fixed;
+  top: 4.5rem;
+  z-index: 10;
+}
+
+.Main {
+  background-color: var(--primary-day-clr);
+  height: 4.5rem;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.Logo {
+  height: 3.5rem;
+  width: 8.7rem;
+}
+
+.Menu-Bar {
+  display: none;
+}
+
+.Menu-Icon {
+  position: absolute;
+  left: 0;
+  margin-left: 2rem;
+  display: none;
+}
+
+#Menu:checked+label {
+  color: var(--text-day-clr);
+}
+
+.Search-bar {
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  width: 30rem;
+  /* border: 1px solid black; */
+}
+
+.finder {
+  height: 2.3rem;
+  width: 27.2rem;
+  padding: 0 0 0 0.8rem;
+  border: none;
+  caret-color: var(--primary-day-clr);
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+}
+
+.Mag-glass {
+  height: 37px;
+  width: 45px;
+  border: none;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.Dark-input {
+  background-color: var(--background-night-clr);
+  color: var(--text-night-clr);
+  transition: all 200ms ease-in-out;
+
+}
+
+.Light-input {
+  background-color: var(--background-day-clr);
+  color: var(--text-day-clr);
+  transition: all 200ms ease-in-out;
+
+}
+
+.Dark-Mag {
+  background-color: var(--secondary-night-clr);
+  color: var(--text-night-clr);
+  transition: all 200ms ease-in-out;
+
+}
+
+.Dark-Mag:hover {
+  background-color: #211122ac;
+}
+
+.Light-Mag {
+  background-color: var(--secondary-day-clr);
+  color: var(--text-day-clr);
+  transition: all 200ms ease-in-out;
+
+}
+
+.Light-Mag:hover {
+  background-color: #edddeea2;
+}
+
+/* .Seller {
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+  font-size: large;
+  transition: color 0.1s;
+}
+ */
+
+#User-login {
+  height: 36px;
+  width: 90px;
+  border: none;
+  text-decoration: none;
+  background: linear-gradient(90deg, #621996, #8A2BE2, #8F00FF, #8F00FF, #8A2BE2, #621996);
+  border-radius: 5px;
+  letter-spacing: 3px;
+  padding-top: 0.47rem;
+  padding-left: 4px;
+  font-size: 15px;
+  color: var(--text-day-clr);
+  text-transform: uppercase;
+  font-weight: bold;
+  transition: all 0.3s ease-in;
+}
+
+#User-login:hover {
+  letter-spacing: 5px;
+  padding-right: 0;
+}
+
+.Dark-Mode {
+  margin-top: 0.15rem;
+  height: 28px;
+  width: 28px;
+}
+
+.Light-Navbar {
+  background-color: var(--secondary-day-clr);
+  transition: all 200ms ease-in-out;
+
+}
+
+.Dark-Navbar {
+  background-color: var(--secondary-night-clr);
+  transition: all 200ms ease-in-out;
+
+}
+
+nav ul li a {
+  text-decoration: none;
+  font-weight: 500;
+}
+
+nav ul li {
+  list-style-type: none;
+  padding-left: 1.6rem;
+}
+
+.User-Creds {
+  display: none;
+}
+
+/* nav ul li a:focus{
+  background-color: black;
+} */
+ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  width: 100vw;
+}
+
+#nav-user {
+  display: none;
+}
+
+#nav-menu {
+  display: none;
+}
+
+.Nav-Position {
+  display: none;
+}
+.User-dialog{
+  display: none;
+}
+
+@media screen and (max-width: 1001px) {
+  .Logo {
+    height: 3rem;
+    width: 7rem;
+  }
+
+  .User-Creds {
+    display: block;
+  }
+
+  .Search-bar {
+    width: 18rem;
+  }
+
+  .finder {
+    width: 16rem;
+  }
+
+  .Mag-glass {
+    width: 40px;
+  }
+
+  .User-dialog {
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    top: 4rem;
+    right: 16.7rem;
+    box-shadow: 0 0 5px 0 black;
+    background-color: rgb(231, 225, 225);
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+  }
+  
+  .User-dialog {
+    opacity: 0;
+    border-radius: 5px;
+    transform-origin: top;
+    transform: scale(1, 0);
+    transition: all 100ms ease-in;
+  }
+  #nav-user:checked ~ .User-dialog{
+    transform: scale(1,1);
+    opacity: 1;
+  }
+  .User-dialog::after {
+    content: " ";
+    position: absolute;
+    bottom: 100%;
+    left: 45%;
+    border-style: solid;
+    border-width: 5px;
+    border-color: transparent transparent rgb(231, 225, 225);
+  }
+  
+  .User-dialog ul li {
+    list-style-type: none;
+    line-height: 2;
+    padding-left: 1rem;
+  }
+  
+  a.User-Options {
+    text-decoration: none;
+    color: var(--text-day-clr);
+  }
+  
+  #User-login {
+    display: none;
+  }
+
+  .Cart {
+    display: none;
+  }
+
+  .Dark-Mode {
+    margin-left: 1rem;
+  }
+
+  .Nav-Position {
+    position: absolute;
+    top: 1.5rem;
+    right: 16.15rem;
+    display: block;
+  }
+
+  nav {
+    opacity: 0;
+    transform: scale(1, 0);
+    top: 4.5rem;
+    transform-origin: top;
+    transition: all 150ms ease-in-out;
+  }
+  ul {
+    display: block;
+    text-align: left;
+    transition: all 100ms ease-in-out;
+  }
+  ul li {
+    line-height: 2;
+  }
+  #nav-menu:checked~nav {
+    opacity: 1;
+    transform: scale(1,1);
+  }
+
+}
+
+@media screen and (max-width: 769px) {
+  .Logo {
+    height: 2.5rem;
+    width: 6.5rem;
+  }
+
+  .User-Creds {
+    display: block;
+  }
+
+  .Search-bar {
+    width: 15rem;
+  }
+
+  .finder {
+    width: 14rem;
+  }
+
+  .Mag-glass {
+    width: 40px;
+  }
+
+  #User-login {
+    display: none;
+  }
+
+  .Cart {
+    display: none;
+  }
+
+  .Dark-Mode {
+    margin-left: 1rem;
+  }
+
+  .Nav-Position {
+    position: absolute;
+    top: 1.5rem;
+    right: 10.5rem;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 426px) {
+  .Logo {
+    height: 2.2rem;
+    width: 5rem;
+    margin-left: 0.2rem;
+  }
+
+  .User-Creds {
+    display: block;
+  }
+
+  .Search-bar {
+    margin-left: -0.5rem;
+    width: 10.5rem;
+  }
+
+  .finder {
+    width: 8.5rem;
+
+  }
+
+  .Mag-glass {
+    width: 40px;
+  }
+
+  #User-login {
+    display: none;
+  }
+
+  .Cart {
+    display: none;
+  }
+
+  .User-Creds {
+    font-size: small;
+  }
+  .User-dialog{
+    right: 2.8rem;
+  }
+  .Nav-icon {
+    font-size: 0.96rem;
+  }
+
+  .Dark-Mode {
+    height: 24px;
+    width: 24px;
+    margin: 0.25rem 0.2rem 0.075rem -0.5rem;
+  }
+
+  .Nav-Position {
+    position: absolute;
+    top: 1.58rem;
+    right: 3.05rem;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 376px) {
+  .Logo {
+    height: 2.2rem;
+    width: 4.9rem;
+    margin-left: 0.3rem;
+  }
+
+  .User-Creds {
+    display: block;
+  }
+
+  .Search-bar {
+    margin-left: -0.5rem;
+    width: 10.5rem;
+    margin-right: -1.4rem;
+  }
+
+  .finder {
+    width: 8.5rem;
+
+  }
+
+  .Mag-glass {
+    width: 40px;
+  }
+
+  #User-login {
+    display: none;
+  }
+
+  .Cart {
+    display: none;
+  }
+
+  .User-Creds {
+    font-size: 0.75rem;
+  }
+
+  .Nav-icon {
+    font-size: 0.85rem;
+  }
+
+  .Dark-Mode {
+    /* margin-left: -1rem; */
+    height: 22px;
+    width: 22px;
+    margin-top: 0.3rem;
+    margin-right: 0.5rem;
+
+  }
+
+  .Nav-Position {
+    position: absolute;
+    top: 1.65rem;
+    right: 2.7rem;
+    display: block;
+  }
+}

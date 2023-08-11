@@ -1,0 +1,20 @@
+:root{
+  --primary-day-clr: #5d3e7e;
+  --secondary-day-clr: #edddee;
+  --accent-day-clr: #5355ac;
+  --text-day-clr: #050505;
+  --background-day-clr: #fafafa;
+}
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+/* 
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+} */

@@ -1,0 +1,107 @@
+:root {
+  /* Day */
+  --primary-day-clr: #5d3e7e;
+  --secondary-day-clr: #edddee;
+  --accent-day-clr: #5355ac;
+  --text-day-clr: #050505;
+  --background-day-clr: #fafafa;
+  /* Night */
+  --secondary-night-clr: #211122;
+  --accent-night-clr: #9899cd;
+  --text-night-clr: #fafafa;
+  --background-night-clr: #050505;
+  /* Fonts */
+  --font-heading: 'Raleway', sans-serif;
+  --font-title: 'Quicksand', sans-serif;
+  --font-content: 'Chakra Petch', sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+  cursor: url('/public/assets/cursor-svg/default-cursor.svg'), auto;
+}
+
+a,
+button,
+.Mag-glass,
+.Product-Card img,
+.Product-Card h1,
+.Product-Card button,
+.Glow-up,
+.Log-in,
+.Otp,
+.Sign-in-caption,
+.User,
+.Jump-back,
+.Cart,
+.Dark-Mode,
+#User-login{
+  cursor: url('/public/assets/cursor-svg/pointer-cursor.svg'), pointer;
+}
+p, input[type="text"], textarea, h3{
+  cursor: url('/public/assets/cursor-svg/text-cursor.svg'), text;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.App {
+  text-align: center;
+  overflow: hidden;
+  background-color: var(--background-day-clr);
+}
+
+/* Custom Designs */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  border: 0px;
+  box-shadow: inset 0 0 5px grey;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(var(--primary-day-clr), var(--accent-night-clr), var(--primary-day-clr));
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(#4f356b, #7e7fa9, #4f356b);
+}
+
+::selection {
+  background-color: var(--secondary-day-clr);
+  color: var(--text-day-clr);
+}
+
+/* Theme */
+
+.Dark-All {
+  background-color: var(--background-night-clr);
+  color: var(--text-night-clr);
+  transition: all 200ms ease-in-out;
+
+}
+
+.Light-All {
+  background-color: var(--background-light-clr);
+  color: var(--text-light-clr);
+  transition: all 200ms ease-in-out;
+
+}
+
+.Dark-Text {
+  color: var(--text-night-clr);
+  transition: all 200ms ease-in-out;
+
+}
+
+.Light-Text {
+  color: var(--text-day-clr);
+  transition: all 200ms ease-in-out;
+
+}

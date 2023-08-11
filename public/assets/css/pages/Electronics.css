@@ -1,0 +1,9 @@
+.Electronics{
+    padding-top: 7.7rem;
+}
+@media screen and (max-width: 1000px) {
+    .Electronics{
+        margin-top: 4.5rem;
+        padding-top: 1rem;
+    }
+}

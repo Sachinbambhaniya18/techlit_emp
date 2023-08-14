@@ -131,8 +131,8 @@ nav {
   background: linear-gradient(90deg, #621996, #8A2BE2, #8F00FF, #8F00FF, #8A2BE2, #621996);
   border-radius: 5px;
   letter-spacing: 3px;
-  padding-top: 0.47rem;
-  padding-left: 4px;
+  padding-top: 0.3em;
+  padding-left: 7px;
   font-size: 15px;
   color: var(--text-day-clr);
   text-transform: uppercase;
@@ -142,7 +142,7 @@ nav {
 
 #User-login:hover {
   letter-spacing: 5px;
-  padding-right: 0;
+  padding-right: 3px;
 }
 
 .Dark-Mode {

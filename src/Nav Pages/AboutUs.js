@@ -1,8 +1,19 @@
-import React from 'react'
+// import { motion } from 'framer-motion';
+import React from 'react';
+
 const AboutUs = (props)=> {
   
   return (
-    <div className={`AbtUs ${props.isDarkMode ? 'Dark-AbtUs' : 'Light-AbtUs'}`}>
+    <div 
+    className={`AbtUs ${props.isDarkMode ? 'Dark-AbtUs' : 'Light-AbtUs'}`}
+    // initial={{opacity: 0}}
+    // animate={{opacity: 1}}
+    // exit={{opacity: 0}}
+    // transition={{
+    //   duration: '0.5',
+    //   ease: "easeInOut"
+    // }}
+    >
       <h1>Welcome to <span className='Heading'>TechLit Emporium</span><span>!</span></h1>
       <p className="Header-Info">
       At TechLit Emporium,  we are driven by our unwavering commitment to provide an exceptional online shopping experience. Our story began in 2023, when a group of like-minded individuals came together with a shared vision: to redefine e-commerce by offering high-quality products and unparalleled customer service to shoppers across the globe.

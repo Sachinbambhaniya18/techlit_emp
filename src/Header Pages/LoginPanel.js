@@ -1,11 +1,12 @@
 
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faX } from '@fortawesome/free-solid-svg-icons';
+import { faXmark} from '@fortawesome/free-solid-svg-icons';
 import Login from '../Components/user/Login';
 import SignUp from '../Components/user/SignUp';
+import { motion } from 'framer-motion';
 
-const LoginPanel = () => {
+const LoginPanel = ({onClose}) => {
   const [isLogin, setIsLogin] = useState(true);
 
   const handleLogin = () => {
@@ -15,14 +16,30 @@ const LoginPanel = () => {
   const handleSignUp = () => {
     setIsLogin(false);
   };
-  const handleBackClick = () => {
-    window.history.back();
-  };
 
   return (
     <div className='Login-container'>
-      <button className='Jump-back' onClick={handleBackClick}><FontAwesomeIcon icon={faX} size="xl" /></button>
-      <div className="Login-panel">
+      <motion.button 
+      className='Jump-back' onClick={onClose}
+      initial={{scale: 0}}
+      animate={{scale: 1}}
+      transition={{
+        duration: 0.3,
+        ease: "easeInOut"
+      }}
+      whileHover={{
+         rotate: 90
+      }}
+      ><FontAwesomeIcon icon={faXmark} size="2xl" /></motion.button>
+      <motion.div 
+      className="Login-panel"
+      initial={{scale: 0}}
+      animate={{scale: 1}}
+      transition={{
+        duration: 0.3,
+        ease: "easeInOut"
+      }}
+      >
         <div className="Info">
           <div className="LoginOpt">
             <button className="User" onClick={handleLogin}>
@@ -43,7 +60,7 @@ const LoginPanel = () => {
           </div>
           {isLogin ? <Login /> : <SignUp />}
         </div>
-      </div>
+      </motion.div>
     </div>
   )
 }

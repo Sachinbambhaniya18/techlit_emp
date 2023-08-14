@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 
-import { Route, Routes, Link } from 'react-router-dom';
+import { Route, Routes, Link} from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass, faShoppingCart, faBars, faArrowRightToBracket } from '@fortawesome/free-solid-svg-icons';
 import { Dark, Light } from '../Components/svg icons/Themes';
 import { faUser } from '@fortawesome/free-regular-svg-icons';
 import Cart from '../Header Pages/Cart';
 import Home from '../Nav Pages/Home';
-import BestSeller from '../Nav Pages/BestSeller';
+// import BestSeller from '../Nav Pages/BestSeller';
 import Television from '../Nav Pages/Television';
 import SmartPhones from '../Nav Pages/SmartPhones';
 import Computers from '../Nav Pages/Computers';
@@ -18,8 +18,16 @@ import LoginPanel from '../Header Pages/LoginPanel';
 import Login from '../Components/user/Login';
 import SignUp from '../Components/user/SignUp';
 import NotFound from '../Nav Pages/NotFound';
+// import { AnimatePresence } from 'framer-motion';
 const MainInterface = () => {
+    const [isLogin, setIsLogin] = useState(false);
 
+    const showLoginPanel = () =>{
+        setIsLogin(!isLogin);
+    }
+    const closeLoginPanel = () =>{
+        setIsLogin(!isLogin);
+    }
     const getDarkModeState = () => {
         const storedState = localStorage.getItem('darkMode');
         return storedState ? JSON.parse(storedState) : false;
@@ -39,7 +47,7 @@ const MainInterface = () => {
     }, [isDarkMode]);
 
     const handleNavBar = () => { return isDarkMode ? { color: 'var(--text-night-clr)' } : { color: 'var(--text-day-clr)' } }
-
+    // const location = useLocation(); 
     return (
         <header className={`Header-section`}>
             <div className={`Nav-Holder`}>
@@ -80,7 +88,10 @@ const MainInterface = () => {
                             </Link>
                         </ul>
                     </div>
-                    <Link to='/LoginPanel' id='User-login'>Login</Link>
+                    <button id='User-login' onClick={showLoginPanel}>Login</button>
+                    {
+                        isLogin && <LoginPanel onClose={closeLoginPanel}/> 
+                    }
                     <Link to="/Cart"><label className={`Cart ${isDarkMode ? 'Dark-Text' : 'Light-Text'}`}><FontAwesomeIcon icon={faShoppingCart} size="xl" /></label></Link>
                     <label onClick={handleTheme}>
                         {isDarkMode ? <Light /> : <Dark />}
@@ -93,9 +104,9 @@ const MainInterface = () => {
                         <li><Link to="/"
                             style={handleNavBar()}>Home</Link>
                         </li>
-                        <li><Link to="/BestSeller"
+                        {/* <li><Link to="/BestSeller"
                             style={handleNavBar()}>Best Seller</Link>
-                        </li>
+                        </li> */}
                         <li><Link to="/Tvs"
                             style={handleNavBar()}>TVs</Link>
                         </li>
@@ -117,10 +128,10 @@ const MainInterface = () => {
                     </ul>
                 </nav>
             </div>
-            <Routes>
+            {/* <AnimatePresence> */}
+            <Routes> {/*location={location} key={location.pathname} */}
                 <Route path='/Cart' element={<Cart isDarkMode={isDarkMode} />} />
-                <Route path='/' element={<Home isDarkMode={isDarkMode} />} />
-                <Route path='/BestSeller' element={<BestSeller isDarkMode={isDarkMode} />} />
+                <Route index element={<Home isDarkMode={isDarkMode} />} />
                 <Route path='/Tvs' element={<Television isDarkMode={isDarkMode} />} />
                 <Route path='/SmartPhones' element={<SmartPhones isDarkMode={isDarkMode} />} />
                 <Route path='/Computers' element={<Computers isDarkMode={isDarkMode} />} />
@@ -133,6 +144,7 @@ const MainInterface = () => {
                 </Route>
                 <Route element={<NotFound />} />
             </Routes>
+            {/* </AnimatePresence> */}
         </header>
     );
 }

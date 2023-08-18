@@ -1,14 +1,22 @@
 
-.Login-container{
+.Login-holder{
+    
     position: absolute;
     height: 100vh;
     width: 100vw;
-    z-index: 11;
+    z-index: 10;
     top: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgba(13, 13, 13, 0.425);
+    /* animation: appearance 400ms ease-in-out; */
+}
+.Login-container{
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(13, 13, 13, 0.524);
+    z-index: 6;
 }
 .Jump-back{
     border: none;
@@ -17,10 +25,13 @@
     position: relative;
     left: 42rem;
     bottom: 17.5rem;
-    transition: all 80ms ease-in-out;
-}
-.Jump-back:hover{
-    color: var(--primary-day-clr);
+    z-index: 7;
+    /* transition: all 300ms ease-in-out; */
+    /* animation: appearance 700ms ease-in-out; */
+
+    &:hover{
+        rotate: 90deg;
+    }
 }
 .Login-panel{
     display: flex;
@@ -32,7 +43,18 @@
     border: 1px solid black;
     border-radius: 5px;
     background-color: var(--background-day-clr);
+    z-index: 7;
+    /* animation: appearance 400ms ease-in-out; */
+
 }
+/* @keyframes appearance {
+    0%{
+        transform: scale(0);
+    }
+    100%{
+        transform: scale(1);
+    }
+} */
 .Info{
     background-color: var(--primary-day-clr);
     height: 100%;

@@ -1,9 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300&family=Quicksand:wght@300&family=Raleway:wght@300&display=swap');
 
 .AbtUs{
-    padding-top: 7rem;
+    padding-top: 5rem;
     padding-bottom: 1rem;
     overflow: visible;
+    /* height: 100vh; */
 }
 .Dark-AbtUs{
     background-color: var(--background-night-clr);

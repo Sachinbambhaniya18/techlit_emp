@@ -1,71 +1,61 @@
 .HomePage{
     padding-top: 8rem;
-    display: grid;
-    place-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
 }
-.Featured{
-    height: auto;
-    width: auto;
-    padding: 20px 0 20px 55px;
-    border-radius: 2px;
-    width: 90vw;
-    margin-top: 2rem;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(8rem, 12.2rem));
-    grid-row: 10rem;
-    gap: 1rem;
+.Title{
+    display: inline;
+    grid-column: 1/-1;
+    font-family: 'Montserrat', sans-serif;
+    margin-left: -2rem;
+    font-weight: 700;
+    font-size: 35px;
+    
+}
+fieldset{
+    border-radius: 5px;
+    padding: 0.2rem 3rem;
     margin-bottom: 2rem;
 
-    & .Title{
-        display: inline;
-        /* grid-column: 1/-1; */
-        margin: 0;
-        padding: 0;
+}
+.Dark-Field{
+    border: 2px solid var(--text-night-clr);
+
+    & legend{
         text-align: left;
-        font-weight: 700;
-        font-size: 28px;
-    }
-    & .Separator{
-        grid-column: 1/-1;
-        margin: 0;
-        border-radius: 50%;
-        height: 2px;
-        border: none;
-    }
-}
-.Dark-Featured{
-    background-color: rgb(41, 23, 59);
-    box-shadow: 0 0 2px 2px rgb(41, 23, 59),
-    0 0 4px 1px white;
-    transition: all 100ms ease-in-out;
+        margin: 0 0 -20px 0;
+        & .Dark-Title{
+            background-color: var(--text-day-clr);
 
-    & .Title{
-        background-image: linear-gradient(150deg, var(--secondary-day-clr) 10%, var(--secondary-night-clr));
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-    }
-    & .Separator{
-        background-color: var(--text-night-clr);
+        }
     }
 }
-.Light-Featured{
-   background-color: rgba(211, 178, 247, 0.22);
-   box-shadow: 0 0 2px 2px rgb(232, 220, 245);
-   /* 0 0 4px 1px black; */
-   transition: all 100ms ease-in-out;
+.Light-Field{
+    border: 2px solid var(--text-day-clr);
+    
+    & legend{
+        text-align: left;
+        margin: 0 0 -20px 0;
 
-   & .Title{
-    background-image: linear-gradient(150deg, var(--secondary-night-clr) 10%, var(--secondary-day-clr));
-    -webkit-background-clip: text;
-    background-clip: text;
-    color: transparent;
-   }
-   & .Separator{
-    background-color: var(--text-day-clr);
+        & .Light-Title{
+            background-color: var(--text-night-clr);
+        }
+    }
 }
+.Featured{
+    height: 35rem;
+    width: 85vw;
+    border-radius: 2px;
+    margin-top: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 10% 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 0.5rem;
+    margin-bottom: 2.5rem;
 }
+
 @media screen and (max-width: 1025px) {
     .HomePage{
         margin-top: 4.5rem;

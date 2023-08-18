@@ -28,6 +28,7 @@ const MainInterface = () => {
     const closeLoginPanel = () =>{
         setIsLogin(!isLogin);
     }
+
     const getDarkModeState = () => {
         const storedState = localStorage.getItem('darkMode');
         return storedState ? JSON.parse(storedState) : false;
@@ -51,7 +52,7 @@ const MainInterface = () => {
     return (
         <header className={`Header-section`}>
             <div className={`Nav-Holder`}>
-                <div className="Main">
+                <div className={`Main ${isDarkMode ? 'Dark-Header' : 'Light-Header'}`}>
                     <input type="checkbox" id="Menu" className='Menu-Bar' />
                     <label htmlFor="Menu" className='Menu-Icon'></label>
                     <Link to="/" id="Logo">
@@ -65,14 +66,13 @@ const MainInterface = () => {
                             </button>
                         </div>
                     </form>
-                    {/* <Link to="/SellerHub" className='Seller' disabled>Become a Seller</Link> */}
                     <input type="checkbox" id="nav-user" />
                     <label htmlFor="nav-user" className={`User-Creds ${isDarkMode ? 'Dark-Text' : 'Light-Text'}`}>
                         <FontAwesomeIcon icon={faUser} size='xl' />
                     </label>
                     <div className='User-dialog'>
                         <ul>
-                            <Link to="/LoginPanel" className='User-Options'>
+                            <Link onClick={showLoginPanel} className='User-Options'>
                                 <li>
                                     <FontAwesomeIcon icon={faArrowRightToBracket} size='s'/>
                                     &nbsp;
@@ -100,49 +100,48 @@ const MainInterface = () => {
                 <input type="checkbox" id="nav-menu" className='Nav-Position' />
                 <label htmlFor="nav-menu" className={`Nav-icon Nav-Position ${isDarkMode ? 'Dark-Text' : 'Light-Text'}`}><FontAwesomeIcon icon={faBars} size='xl' /></label>
                 <nav className={`${isDarkMode ? 'Dark-Navbar Dark-effect' : 'Light-Navbar Light-effect'}`}>
-                    <ul className="Options">
-                        <li><Link to="/"
+                    <div className="Options">
+                        <Link to="/"
                             style={handleNavBar()}>Home</Link>
-                        </li>
                         {/* <li><Link to="/BestSeller"
                             style={handleNavBar()}>Best Seller</Link>
                         </li> */}
-                        <li><Link to="/Tvs"
+                        <Link to="/Tvs"
                             style={handleNavBar()}>TVs</Link>
-                        </li>
-                        <li><Link to="/SmartPhones"
+                        
+                        <Link to="/SmartPhones"
                             style={handleNavBar()}>Smart Phones</Link>
-                        </li>
-                        <li><Link to="/Computers"
+                        
+                        <Link to="/Computers"
                             style={handleNavBar()}>Desktops/Laptops</Link>
-                        </li>
-                        <li><Link to="/Electronics"
+                        
+                        <Link to="/Electronics"
                             style={handleNavBar()}>Electronics</Link>
-                        </li>
-                        <li><Link to="/Books"
+                        
+                        <Link to="/Books"
                             style={handleNavBar()}>Books</Link>
-                        </li>
-                        <li><Link to="/AboutUs"
+                        
+                        <Link to="/AboutUs"
                             style={handleNavBar()}>About Us</Link>
-                        </li>
-                    </ul>
+                        
+                    </div>
                 </nav>
             </div>
             {/* <AnimatePresence> */}
             <Routes> {/*location={location} key={location.pathname} */}
-                <Route path='/Cart' element={<Cart isDarkMode={isDarkMode} />} />
-                <Route index element={<Home isDarkMode={isDarkMode} />} />
-                <Route path='/Tvs' element={<Television isDarkMode={isDarkMode} />} />
-                <Route path='/SmartPhones' element={<SmartPhones isDarkMode={isDarkMode} />} />
-                <Route path='/Computers' element={<Computers isDarkMode={isDarkMode} />} />
-                <Route path='/Electronics' element={<Electronics isDarkMode={isDarkMode} />} />
-                <Route path='/Books' element={<Books isDarkMode={isDarkMode} />} />
-                <Route path='/AboutUs' element={<AboutUs isDarkMode={isDarkMode} />} />
-                <Route path='/LoginPanel' element={<LoginPanel isDarkMode={isDarkMode} />} >
+                <Route index element={<Home title="Home - TechLit Emporium" isDarkMode={isDarkMode} />} />
+                <Route path='/Cart' element={<Cart title="Cart - TechLit Emporium" isDarkMode={isDarkMode} />} />
+                <Route path='/Tvs' element={<Television title="TVs - TechLit Emporium" isDarkMode={isDarkMode} />} />
+                <Route path='/SmartPhones' element={<SmartPhones title="SmartPhones - TechLit Emporium" isDarkMode={isDarkMode} />} />
+                <Route path='/Computers' element={<Computers title="Computers - TechLit Emporium" isDarkMode={isDarkMode} />} />
+                <Route path='/Electronics' element={<Electronics title="Electronics - TechLit Emporium" isDarkMode={isDarkMode} />} />
+                <Route path='/Books' element={<Books title="Books - TechLit Emporium" isDarkMode={isDarkMode} />} />
+                <Route path='/AboutUs' element={<AboutUs title="About Us - TechLit Emporium" isDarkMode={isDarkMode} />} />
+                <Route path='/LoginPanel' element={<LoginPanel title="Login - TechLit Emporium" isDarkMode={isDarkMode} />} >
                     <Route element={<Login isDarkMode={isDarkMode} />} />
                     <Route element={<SignUp isDarkMode={isDarkMode} />} />
                 </Route>
-                <Route element={<NotFound />} />
+                <Route title="404 - Not Founf" element={<NotFound />} />
             </Routes>
             {/* </AnimatePresence> */}
         </header>

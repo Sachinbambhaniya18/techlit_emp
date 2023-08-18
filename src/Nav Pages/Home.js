@@ -1,9 +1,16 @@
-import React from 'react'
-import Card from '../Components/Card';
+import React, { useEffect } from 'react'
+import FeaturedCard from '../Components/FeaturedCard';
 import { featuredData } from '../data/productData';
 // import { motion } from 'framer-motion';
 
-const Home = ({ isDarkMode }) => {
+const cardClass = ["Card1","Card2","Card3","Card4","Card5"]
+const Home = ({ isDarkMode, title = "TechLit Emporium" }) => {
+  
+
+  useEffect(()=>{
+    document.title = title;
+  }, [title])
+
 
   return (
     <div 
@@ -16,24 +23,29 @@ const Home = ({ isDarkMode }) => {
     //   ease: "easeInOut"
     // }}
     >
+      <fieldset className={`${isDarkMode ? 'Dark-Field' : 'Light-Field'}`}>
+        <legend>
+          <h1 className={`Title ${isDarkMode ? 'Dark-Title' : 'Light-Title'}`}>Featured</h1>
+        </legend>
       <div className={`Featured ${isDarkMode ? 'Dark-Featured' : 'Light-Featured'}`}>
-        <h1 className='Title'>Featured</h1>
-        <hr className='Separator' />
-        {
-            featuredData.map((featured)=>{
+        {/* <hr className='Separator' /> */}
+        {   
+            featuredData.map((featured, index)=>{
               return(
-              <Card
+              <FeaturedCard
               key={featured.id}
               src={featured.src}
               name={featured.name}
               description={featured.description}
               price={featured.price}
               mrp={featured.mrp}
+              classCard={cardClass[index]}
               isDarkMode={isDarkMode} />
               )
             })
         }
       </div>
+      </fieldset>
     </div>
   )
 }

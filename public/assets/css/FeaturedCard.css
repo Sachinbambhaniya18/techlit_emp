@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
+
+.Product-Card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    color: var(--text-night-clr);
+    transition: all 400ms ease-in-out;
+
+    & img {
+        margin: 0;
+        padding: 0;
+        background-color: white;
+        transition: all 150ms ease-in-out;
+    }
+
+    & h1 {
+        font-size: medium;
+        margin: 0;
+        text-align: left;
+        padding: 10px 0 0 10px;
+    }
+
+    & h3 {
+        margin: 0 0 0 10px;
+        font-size: 1rem;
+        font-weight: 400;
+        text-align: left;
+
+        &::before {
+            position: relative;
+            content: '₹';
+            font-size: 0.7rem;
+            top: -0.2rem;
+            padding-right: 0.15rem;
+        }
+    }
+}
+
+h3 span {
+    font-size: 0.7rem;
+    margin: 0 0 0 10px;
+    text-decoration: line-through;
+    color: rgb(239, 88, 88);
+
+    &::before {
+        font-size: 0.7rem;
+        position: relative;
+        content: '₹';
+    }
+}
+
+.Card1 {
+    height: 35.5rem;
+    grid-row-start: span 2;
+    grid-column-start: span 2;
+    border-radius: 2px;
+
+    & img {
+        border-radius: 2px;
+        height: 100%;
+        width: 100%;
+    }
+}
+
+.Card2 {
+    height: 17.5rem;
+    grid-column-start: span 3;
+    border-radius: 2px;
+
+    & img {
+        border-radius: 2px;
+        height: 100%;
+        width: 100%;
+    }
+}
+
+.Card3 {
+    height: 17.5rem;
+    border-radius: 2px;
+
+    & img {
+        border-radius: 2px;
+        height: 100%;
+        width: 100%;
+    }
+}
+
+.Card4 {
+    height: 17.5rem;
+    border-radius: 2px;
+
+    & img {
+        border-radius: 2px;
+        height: 100%;
+        width: 100%;
+    }
+}
+
+.Card5 {
+    height: 17.5rem;
+    border-radius: 2px;
+
+    & img {
+        border-radius: 2px;
+        height: 100%;
+        width: 100%;
+        object-fit: fill;
+    }
+}
+
+.Displayer {
+    position: absolute;
+    top: 100%;
+    height: 0%;
+    width: 100%;
+    background-color: rgba(93, 62, 126, 0.8);
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 2px;
+    overflow: hidden;
+    filter: brightness(1);
+    transition: all 400ms ease-in-out;
+
+    & button{
+        height: 2.5em;
+        width: 10em;
+        margin-top: 1em;
+        font-weight: 600;
+        text-transform: uppercase;
+        border-radius: 2px;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 0.9rem;
+        align-self: center;
+        transition: all 300ms ease-in-out;
+
+     
+    }
+    .Dark-Btn{
+        background-color: var(--text-night-clr);
+        border: 3px solid var(--accent-night-clr);
+        color: var(--accent-night-clr);
+        &:hover{
+            background-color: var(--accent-night-clr);
+            color: var(--text-night-clr);
+            scale: 1.1;
+        }
+    }
+    .Light-Btn{
+        background-color: var(--text-night-clr);
+        border: 3px solid var(--accent-day-clr);
+        color: var(--accent-day-clr);
+        &:hover{
+            background-color: var(--accent-day-clr);
+            color: var(--text-night-clr);
+            scale: 1.1;
+        }
+    }
+}
+.Product-Card:hover img
+{
+    filter: brightness(0.6);
+}
+
+.Card1:hover .Displayer,
+.Card2:hover .Displayer,
+.Card3:hover .Displayer,
+.Card4:hover .Displayer,
+.Card5:hover .Displayer {
+    top: 50%;
+    height: 50%;
+    /* opacity: 1; */
+}
+
+.Light-Card {
+    color: var(--text-night-clr);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+
+.Dark-Card {
+    color: var(--text-night-clr);
+    box-shadow: 0px 2px 6px rgba(255, 255, 255, 0.2);
+}

@@ -1,10 +1,13 @@
 // import { motion } from 'framer-motion';
-import React from 'react'
+import React, { useEffect } from 'react'
 
-const Television = (props)=> {
+const Television = ({isDarkMode, title = "TechLit Emporium"}) => {
+  useEffect(()=>{
+    document.title = title;
+  }, [title])
   return (
-    <div 
-    className={`Televisions ${props.isDarkMode ? 'Dark-All' : 'Light-All'}`}
+    <div
+      className={`Televisions ${isDarkMode ? 'Dark-All' : 'Light-All'}`}
     // initial={{opacity: 0}}
     // animate={{opacity: 1}}
     // exit={{opacity: 0}}

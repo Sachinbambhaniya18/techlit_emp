@@ -1,6 +1,9 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 
-const NotFound = () => {
+const NotFound = ({title}) => {
+  useEffect(()=>{
+    document.title = title;
+  }, [title])
   return (
     <div>
         <h1>Not Found</h1>

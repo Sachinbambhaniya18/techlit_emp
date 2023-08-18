@@ -1,8 +1,11 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-const Cart = (props) => {
+const Cart = ({isDarkMode, title}) => {
+  useEffect(()=>{
+    document.title = title;
+  }, [title])
   return (
-    <div className={`ShoppingCart ${props.isDarkMode ? 'Dark-All' : 'Light-All'}`}>
+    <div className={`ShoppingCart ${isDarkMode ? 'Dark-All' : 'Light-All'}`}>
       <div className="Item-Holder">
         <img src="/assets/images/cart/Empty_Shopping_Cart.png" alt="product" />
         <h1>Looking for your items?</h1>

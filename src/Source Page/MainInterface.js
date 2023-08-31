@@ -184,14 +184,12 @@ const MainInterface = () => {
                             <Link onClick={showLoginPanel} className='User-Options'>
                                 <li>
                                     <FontAwesomeIcon icon={faArrowRightToBracket} size='s' />
-                                    &nbsp;
                                     Login
                                 </li>
                             </Link>
                             <Link to="/Cart" className='User-Options'>
                                 <li>
                                     <FontAwesomeIcon icon={faShoppingCart} size="s" />
-                                    &nbsp;
                                     Cart
                                 </li>
                             </Link>

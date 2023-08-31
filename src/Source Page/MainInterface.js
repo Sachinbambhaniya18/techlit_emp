@@ -23,24 +23,15 @@ const MainInterface = () => {
     const [isLogin, setIsLogin] = useState(false);
     const [showNavbar, setShowNavbar] = useState(false);
 
-    const showNav = () => {
-        setShowNavbar(!showNavbar);
-        document.body.classList.add('Scroll-Lock');
-    }
-    const closeNav = () => {
-        setShowNavbar(!showNavbar);
-        document.body.classList.remove('Scroll-Lock');
-    }
+    const showHideElement = (setter, cssClass) => {
+        setter(prevValue => !prevValue);
+        document.body.classList.toggle(cssClass);
+    };
 
-    const showLoginPanel = () => {
-        setIsLogin(!isLogin);
-        document.body.classList.add('Scroll-Lock');
-    }
-
-    const closeLoginPanel = () => {
-        setIsLogin(!isLogin);
-        document.body.classList.remove('Scroll-Lock');
-    }
+    const showNav = () => showHideElement(setShowNavbar, 'Scroll-Lock');
+    const closeNav = () => showHideElement(setShowNavbar, 'Scroll-Lock');
+    const showLoginPanel = () => showHideElement(setIsLogin, 'Scroll-Lock');
+    const closeLoginPanel = () => showHideElement(setIsLogin, 'Scroll-Lock');
 
     const getDarkModeState = () => {
         const storedState = localStorage.getItem('darkMode');
@@ -153,9 +144,11 @@ const MainInterface = () => {
         },
 
     ]
-    const handleNavBar = isDarkMode ? { color: 'var(--text-night-clr)' } : { color: 'var(--text-day-clr)' }
-    // const location = useLocation(); 
-    return (
+    const handleNavBar = isDarkMode
+        ? { color: 'var(--text-night-clr)' }
+        : { color: 'var(--text-day-clr)' };
+
+        return (
         <header className={`Header-section`}>
             <div className={`Nav-Holder`}>
                 <div className={`Main ${isDarkMode ? 'Dark-Header' : 'Light-Header'}`}>

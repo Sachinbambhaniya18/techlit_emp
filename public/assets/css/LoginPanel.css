@@ -1,6 +1,5 @@
 
 .Login-holder{
-    
     position: absolute;
     height: 100vh;
     width: 100vw;
@@ -9,13 +8,13 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    /* animation: appearance 400ms ease-in-out; */
+    
 }
 .Login-container{
     position: absolute;
     height: 100vh;
     width: 100vw;
-    background-color: rgba(13, 13, 13, 0.524);
+    background-color: rgba(38, 16, 41, 0.425);
     z-index: 6;
 }
 .Jump-back{
@@ -26,12 +25,6 @@
     left: 42rem;
     bottom: 17.5rem;
     z-index: 7;
-    /* transition: all 300ms ease-in-out; */
-    /* animation: appearance 700ms ease-in-out; */
-
-    &:hover{
-        rotate: 90deg;
-    }
 }
 .Login-panel{
     display: flex;
@@ -44,17 +37,10 @@
     border-radius: 5px;
     background-color: var(--background-day-clr);
     z-index: 7;
-    /* animation: appearance 400ms ease-in-out; */
-
+    font-family: var(--global-font);
+    font-weight: 300;
 }
-/* @keyframes appearance {
-    0%{
-        transform: scale(0);
-    }
-    100%{
-        transform: scale(1);
-    }
-} */
+
 .Info{
     background-color: var(--primary-day-clr);
     height: 100%;
@@ -94,11 +80,11 @@ h2{
     margin-left: 2rem;
 }
 .Login-logo{
-    margin-top: 5rem;
-    height: 6rem;
-    margin-bottom: 2rem;
+    margin-top: 4rem;
+    height: 8rem;
+    width: 8rem;
+    cursor: auto;
 }
-
 
 /* Login/SignUp Css */
 
@@ -108,13 +94,20 @@ h2{
     font-weight: 500;
 }
 .Input-Field{
-    height: 1.5rem;
+    height: 2rem;
     width: 13.4rem;
     margin-top: 0.3rem;
     margin-bottom: 1rem;
     border: none;
+    font-size: 1em;
     border-bottom: 2px solid grey;
     background-color: transparent;
+
+    &:focus{
+        outline: none;
+        border: 2px solid var(--primary-day-clr);
+        border-radius: 5px;
+    }
 }
 .Error-message{
     color: rgb(255, 64, 0);
@@ -161,7 +154,6 @@ h2{
 .Log-in:hover, .Otp:hover{
     background-color: white;
     color: var(--accent-day-clr);
-    /* border: 1px solid var(--accent-day-clr); */
     box-shadow: 
     inset 0px 0px 3px 0.5px var(--accent-day-clr),
     0 0 40px 0 var(--accent-night-clr);
@@ -237,4 +229,3 @@ h2{
         bottom: 1.5rem;
     }
 }
-

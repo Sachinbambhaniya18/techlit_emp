@@ -1,62 +1,68 @@
 
 import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faXmark} from '@fortawesome/free-solid-svg-icons';
+import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import Login from '../Components/user/Login';
 import SignUp from '../Components/user/SignUp';
 import { motion as m } from 'framer-motion';
-
+import { Logo } from '../Components/svg icons/logo';
+import { Link } from 'react-router-dom';
 const dropIn = {
   hidden: {
-    scale: 0,
+    y: "5vh",
     opacity: 0
   },
-  visible:{
-    scale: 1,
+  visible: {
+    y: "0vh",
     opacity: 1,
-    transition:{
-      duration: 0.3,
-      damping: 25,
-      stiffness: 500
+    transition: {
+      type: "spring",
+      // duration: 0.3,
+      damping: 30,
+      stiffness: 1000
     }
   },
   exit: {
-    scale: 0,
+    y: "-5vh",
     opacity: 0
   }
 }
-const LoginPanel = ({onClose, title = "Login - TechLit Emporium"}) => {
-  const [isLogin, setIsLogin] = useState(true);
+const LoginPanel = ({ onClose, title = "Login - TechLit Emporium" }) => {
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
 
   const handleLogin = () => {
-    setIsLogin(!isLogin);
+    setIsLoggedIn(!isLoggedIn);
   };
 
   const handleSignUp = () => {
-    setIsLogin(!isLogin);
+    setIsLoggedIn(!isLoggedIn);
   };
-  useEffect(()=>{
+  useEffect(() => {
+    const originalTitle = document.title;
     document.title = title;
-  }, [title])
+    return () => {
+        document.title = originalTitle;
+    };
+}, [title])
   return (
     <div className='Login-holder'>
       <div className="Login-container" onClick={onClose}></div>
-      <m.button 
-      className='Jump-back' onClick={onClose}
-      variants={dropIn}
-      initial="hidden"
-      animate="visible"
-      exit="exit"
-      whileHover={{
-        rotate: 90
-      }}
+      <m.button
+        className='Jump-back' onClick={onClose}
+        variants={dropIn}
+        initial="hidden"
+        animate="visible"
+        exit="exit"
+        whileHover={{
+          rotate: 90
+        }}
       ><FontAwesomeIcon icon={faXmark} size="2xl" /></m.button>
-      <m.div 
-      className="Login-panel"
-      variants={dropIn}
-      initial="hidden"
-      animate="visible"
-      exit="exit"
+      <m.div
+        className="Login-panel"
+        variants={dropIn}
+        initial="hidden"
+        animate="visible"
+        exit="exit"
       >
         <div className="Info">
           <div className="LoginOpt">
@@ -74,9 +80,11 @@ const LoginPanel = ({onClose, title = "Login - TechLit Emporium"}) => {
         </div>
         <div className="Credentials">
           <div className="Logo-holder">
-            <img src="/assets/images/logo/TechLit_Login.png" alt="logo" className='Login-logo' />
+            <Link className='Login-logo'>
+              <Logo />
+            </Link>
           </div>
-          {isLogin ? <Login /> : <SignUp />}
+          {isLoggedIn ? <Login /> : <SignUp />}
         </div>
       </m.div>
     </div>

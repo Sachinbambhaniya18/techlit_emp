@@ -1,9 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300&family=Quicksand:wght@300&family=Raleway:wght@300&display=swap');
 
 .AbtUs{
-    padding-top: 5rem;
+    padding-top: 6.5rem;
     padding-bottom: 1rem;
-    overflow: visible;
+    /* overflow: hidden; */
     /* height: 100vh; */
 }
 .Dark-AbtUs{
@@ -35,7 +35,10 @@ h1 span:nth-child(2){
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    user-select: none;
+    /* user-select: none; */
+}
+.Heading::selection{
+    -webkit-text-fill-color: var(--text-day-clr);
 }
 .Header-Info, .Description{
     font-size: 25px;

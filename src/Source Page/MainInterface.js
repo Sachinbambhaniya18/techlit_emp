@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
 
-import { Route, Routes, Link} from 'react-router-dom';
+import { Route, Routes, Link } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass, faShoppingCart, faBars, faArrowRightToBracket } from '@fortawesome/free-solid-svg-icons';
 import { Dark, Light } from '../Components/svg icons/Themes';
 import { faUser } from '@fortawesome/free-regular-svg-icons';
 import Cart from '../Header Pages/Cart';
 import Home from '../Nav Pages/Home';
-// import BestSeller from '../Nav Pages/BestSeller';
 import Television from '../Nav Pages/Television';
 import SmartPhones from '../Nav Pages/SmartPhones';
 import Computers from '../Nav Pages/Computers';
@@ -15,18 +14,32 @@ import Electronics from '../Nav Pages/Electronics';
 import Books from '../Nav Pages/Books';
 import AboutUs from '../Nav Pages/AboutUs';
 import LoginPanel from '../Header Pages/LoginPanel';
-import Login from '../Components/user/Login';
-import SignUp from '../Components/user/SignUp';
 import NotFound from '../Nav Pages/NotFound';
+import SlideInNavbar from '../Components/SlideInNavbar';
+import { Logo } from '../Components/svg icons/logo';
 // import { AnimatePresence } from 'framer-motion';
+
 const MainInterface = () => {
     const [isLogin, setIsLogin] = useState(false);
+    const [showNavbar, setShowNavbar] = useState(false);
 
-    const showLoginPanel = () =>{
-        setIsLogin(!isLogin);
+    const showNav = () => {
+        setShowNavbar(!showNavbar);
+        document.body.classList.add('Scroll-Lock');
     }
-    const closeLoginPanel = () =>{
+    const closeNav = () => {
+        setShowNavbar(!showNavbar);
+        document.body.classList.remove('Scroll-Lock');
+    }
+
+    const showLoginPanel = () => {
         setIsLogin(!isLogin);
+        document.body.classList.add('Scroll-Lock');
+    }
+
+    const closeLoginPanel = () => {
+        setIsLogin(!isLogin);
+        document.body.classList.remove('Scroll-Lock');
     }
 
     const getDarkModeState = () => {
@@ -39,6 +52,7 @@ const MainInterface = () => {
     };
 
     const [isDarkMode, setIsDarkMode] = useState(getDarkModeState);
+
     const handleTheme = () => {
         setIsDarkMode((prevMode) => !prevMode);
     };
@@ -47,16 +61,111 @@ const MainInterface = () => {
         setDarkModeState(isDarkMode);
     }, [isDarkMode]);
 
-    const handleNavBar = () => { return isDarkMode ? { color: 'var(--text-night-clr)' } : { color: 'var(--text-day-clr)' } }
+    const navPaths = [
+        {
+            path: "/",
+            name: "Home"
+        },
+        {
+            path: "/Tvs",
+            name: "Television"
+        },
+        {
+            path: "/SmartPhones",
+            name: "Smart Phones"
+        },
+        {
+            path: "/Computers",
+            name: "Desktops/Laptops"
+        },
+        {
+            path: "/Electronics",
+            name: "Electronics"
+        },
+        {
+            path: "/Books",
+            name: "Books"
+        },
+        {
+            path: "/AboutUs",
+            name: "About Us"
+        }
+    ]
+    const routePaths = [
+        {
+            path: "/",
+            component: <Home />,
+            title: "Home - TechLit Emporium"
+        },
+        {
+            path: "/Tvs",
+            component: <Television />,
+            title: "TVs - TechLit Emporium"
+
+        },
+        {
+            path: "/SmartPhones",
+            component: <SmartPhones />,
+            title: "Smart Phones - TechLit Emporium"
+        },
+        {
+            path: "/Computers",
+            component: <Computers />,
+            title: "Computers - TechLit Emporium"
+
+        },
+        {
+            path: "/Electronics",
+            component: <Electronics />,
+            title: "Electronics - TechLit Emporium"
+
+        },
+        {
+            path: "/Books",
+            component: <Books />,
+            title: "Books - TechLit Emporium"
+
+        },
+        {
+            path: "/AboutUs",
+            component: <AboutUs />,
+            title: "About Us - TechLit Emporium"
+
+        },
+        {
+            path: "Cart",
+            component: <Cart />,
+            title: "Cart - TechLit Emporium"
+        },
+        {
+            path: "/LoginPanel",
+            component: <LoginPanel />,
+            title: "Login - TechLit Emporium"
+        },
+        {
+            path: "/SlideInNavbar",
+            component: <SlideInNavbar />,
+            title: "TechLit Emporium"
+        },
+        {
+            component: <NotFound />,
+            title: "404 - Not Found"
+        },
+
+    ]
+    const handleNavBar = isDarkMode ? { color: 'var(--text-night-clr)' } : { color: 'var(--text-day-clr)' }
     // const location = useLocation(); 
     return (
         <header className={`Header-section`}>
             <div className={`Nav-Holder`}>
                 <div className={`Main ${isDarkMode ? 'Dark-Header' : 'Light-Header'}`}>
-                    <input type="checkbox" id="Menu" className='Menu-Bar' />
-                    <label htmlFor="Menu" className='Menu-Icon'></label>
-                    <Link to="/" id="Logo">
-                        <img src="/assets/images/logo/TechLit_NavBar.png" alt="logo" className='Logo' />
+                    <button className={`Nav-icon Nav-Position ${isDarkMode ? 'Dark-Text' : 'Light-Text'}`} onClick={showNav}><FontAwesomeIcon icon={faBars} size='xl' /></button>
+                    {
+                        showNavbar && <SlideInNavbar closeNav={closeNav} />
+                    }
+                    <Link to="/" id="Logo" className='Logo'>
+                        <Logo />
+                        {/* <img src="/assets/images/logo/TechLit_NavBar.png" alt="logo" className='Logo' /> */}
                     </Link>
                     <form action="" method="get">
                         <div className="Search-bar">
@@ -74,14 +183,14 @@ const MainInterface = () => {
                         <ul>
                             <Link onClick={showLoginPanel} className='User-Options'>
                                 <li>
-                                    <FontAwesomeIcon icon={faArrowRightToBracket} size='s'/>
+                                    <FontAwesomeIcon icon={faArrowRightToBracket} size='s' />
                                     &nbsp;
                                     Login
                                 </li>
                             </Link>
                             <Link to="/Cart" className='User-Options'>
                                 <li>
-                                <FontAwesomeIcon icon={faShoppingCart} size="s" />
+                                    <FontAwesomeIcon icon={faShoppingCart} size="s" />
                                     &nbsp;
                                     Cart
                                 </li>
@@ -90,58 +199,44 @@ const MainInterface = () => {
                     </div>
                     <button id='User-login' onClick={showLoginPanel}>Login</button>
                     {
-                        isLogin && <LoginPanel onClose={closeLoginPanel}/> 
+                        isLogin && <LoginPanel onClose={closeLoginPanel} />
                     }
                     <Link to="/Cart"><label className={`Cart ${isDarkMode ? 'Dark-Text' : 'Light-Text'}`}><FontAwesomeIcon icon={faShoppingCart} size="xl" /></label></Link>
                     <label onClick={handleTheme}>
                         {isDarkMode ? <Light /> : <Dark />}
                     </label>
                 </div>
-                <input type="checkbox" id="nav-menu" className='Nav-Position' />
-                <label htmlFor="nav-menu" className={`Nav-icon Nav-Position ${isDarkMode ? 'Dark-Text' : 'Light-Text'}`}><FontAwesomeIcon icon={faBars} size='xl' /></label>
                 <nav className={`${isDarkMode ? 'Dark-Navbar Dark-effect' : 'Light-Navbar Light-effect'}`}>
                     <div className="Options">
-                        <Link to="/"
-                            style={handleNavBar()}>Home</Link>
-                        {/* <li><Link to="/BestSeller"
-                            style={handleNavBar()}>Best Seller</Link>
-                        </li> */}
-                        <Link to="/Tvs"
-                            style={handleNavBar()}>TVs</Link>
-                        
-                        <Link to="/SmartPhones"
-                            style={handleNavBar()}>Smart Phones</Link>
-                        
-                        <Link to="/Computers"
-                            style={handleNavBar()}>Desktops/Laptops</Link>
-                        
-                        <Link to="/Electronics"
-                            style={handleNavBar()}>Electronics</Link>
-                        
-                        <Link to="/Books"
-                            style={handleNavBar()}>Books</Link>
-                        
-                        <Link to="/AboutUs"
-                            style={handleNavBar()}>About Us</Link>
-                        
+                        {
+                            navPaths.map((navPath) => {
+                                return (
+                                    <Link to={navPath.path}
+                                        style={handleNavBar}
+                                        key={navPath.path}
+                                    >
+                                        {navPath.name}
+                                    </Link>
+                                )
+                            })
+                        }
                     </div>
                 </nav>
             </div>
             {/* <AnimatePresence> */}
             <Routes> {/*location={location} key={location.pathname} */}
-                <Route index element={<Home title="Home - TechLit Emporium" isDarkMode={isDarkMode} />} />
-                <Route path='/Cart' element={<Cart title="Cart - TechLit Emporium" isDarkMode={isDarkMode} />} />
-                <Route path='/Tvs' element={<Television title="TVs - TechLit Emporium" isDarkMode={isDarkMode} />} />
-                <Route path='/SmartPhones' element={<SmartPhones title="SmartPhones - TechLit Emporium" isDarkMode={isDarkMode} />} />
-                <Route path='/Computers' element={<Computers title="Computers - TechLit Emporium" isDarkMode={isDarkMode} />} />
-                <Route path='/Electronics' element={<Electronics title="Electronics - TechLit Emporium" isDarkMode={isDarkMode} />} />
-                <Route path='/Books' element={<Books title="Books - TechLit Emporium" isDarkMode={isDarkMode} />} />
-                <Route path='/AboutUs' element={<AboutUs title="About Us - TechLit Emporium" isDarkMode={isDarkMode} />} />
-                <Route path='/LoginPanel' element={<LoginPanel title="Login - TechLit Emporium" isDarkMode={isDarkMode} />} >
-                    <Route element={<Login isDarkMode={isDarkMode} />} />
-                    <Route element={<SignUp isDarkMode={isDarkMode} />} />
-                </Route>
-                <Route title="404 - Not Founf" element={<NotFound />} />
+                {
+                    routePaths.map((route) => (
+                        <Route
+                            key={route.path} 
+                            path={route.path}
+                            element={React.cloneElement(route.component, {
+                                title: route.title,
+                                isDarkMode: isDarkMode
+                            })}
+                        />
+                    ))
+                }
             </Routes>
             {/* </AnimatePresence> */}
         </header>

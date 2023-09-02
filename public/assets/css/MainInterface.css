@@ -4,7 +4,7 @@
 }
 
 .Scroll-Lock{
-  overflow: hidden;
+  overflow: hidden !important;
 }
 
 .Dark-effect{
@@ -238,18 +238,6 @@ nav a:focus, nav a:focus-within{
   color: var(--text-night-clr) !important;
 } */
 
-.User-Creds {
-  display: none;
-  position: relative;
-}
-
-#nav-user {
-  display: none;
-}
-
-.User-dialog{
-  display: none;
-}
 .Nav-icon{
   border: none;
   font-size: 1.1rem;
@@ -261,10 +249,6 @@ nav a:focus, nav a:focus-within{
   .Logo {
     height: 3rem;
     width: 7rem;
-  }
-
-  .User-Creds {
-    display: block;
   }
 
   .Search-bar {
@@ -279,52 +263,6 @@ nav a:focus, nav a:focus-within{
     width: 40px;
   }
 
-  .User-dialog {
-    position: absolute;
-    height: 100px;
-    width: 100px;
-    top: 4rem;
-    right: 16.7rem;
-    box-shadow: 0 0 5px 0 black;
-    background-color: rgb(231, 225, 225);
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    justify-content: center;
-  }
-  
-  .User-dialog {
-    opacity: 0;
-    border-radius: 5px;
-    transform-origin: top;
-    transform: scale(1, 0);
-    transition: all 100ms ease-in;
-  }
-  #nav-user:checked ~ .User-dialog{
-    transform: scale(1,1);
-    opacity: 1;
-  }
-  .User-dialog::after {
-    content: " ";
-    position: absolute;
-    bottom: 100%;
-    left: 45%;
-    border-style: solid;
-    border-width: 5px;
-    border-color: transparent transparent rgb(231, 225, 225);
-  }
-  
-  .User-dialog ul li {
-    list-style-type: none;
-    line-height: 2;
-    padding-left: 1rem;
-  }
-  
-  a.User-Options {
-    text-decoration: none;
-    color: var(--text-day-clr);
-  }
-  
   #User-login {
     display: none;
   }
@@ -352,10 +290,6 @@ nav a:focus, nav a:focus-within{
     width: 6.5rem;
   }
 
-  .User-Creds {
-    display: block;
-  }
-
   .Search-bar {
     width: 15rem;
   }
@@ -376,12 +310,11 @@ nav a:focus, nav a:focus-within{
     display: none;
   }
 
-
 }
 
 @media screen and (max-width: 426px) {
   .Main{
-    grid-template-columns: 7% 13% 40% 4% 4% 4%;
+    grid-template-columns: 7% 13% 40% 4% 4%;
     grid-template-rows: 1fr;
     height: 4.7rem;
     gap: 0.9rem;
@@ -398,10 +331,6 @@ nav a:focus, nav a:focus-within{
       width: 20.5px;
     }
 
-  }
-
-  .User-Creds {
-    display: block;
   }
 
   .Search-bar {
@@ -427,12 +356,6 @@ nav a:focus, nav a:focus-within{
     display: none;
   }
 
-  .User-Creds {
-    font-size: small;
-  }
-  .User-dialog{
-    right: 2.8rem;
-  }
   .Nav-icon {
     font-size: 1.1rem;
     margin-top: 0.2rem;
@@ -450,10 +373,6 @@ nav a:focus, nav a:focus-within{
     height: 2.2rem;
     width: 4.9rem;
     margin-left: 0.3rem;
-  }
-
-  .User-Creds {
-    display: block;
   }
 
   .Search-bar {
@@ -479,9 +398,6 @@ nav a:focus, nav a:focus-within{
     display: none;
   }
 
-  .User-Creds {
-    font-size: 0.75rem;
-  }
 
   .Nav-icon {
     font-size: 0.85rem;
@@ -494,5 +410,4 @@ nav a:focus, nav a:focus-within{
     margin-top: 0.3rem;
 
   }
-
 }

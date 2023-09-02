@@ -1,49 +1,55 @@
 
 import React, { useState, useEffect } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome';
 import { faXmark } from '@fortawesome/free-solid-svg-icons';
 import Login from '../Components/user/Login';
 import SignUp from '../Components/user/SignUp';
 import { motion as m } from 'framer-motion';
 import { Logo } from '../Components/svg icons/logo';
-import { Link } from 'react-router-dom';
+
 const dropIn = {
   hidden: {
     y: "5vh",
-    opacity: 0
+    // opacity: 0
   },
   visible: {
     y: "0vh",
-    opacity: 1,
+    // opacity: 1,
     transition: {
       type: "spring",
-      // duration: 0.3,
-      damping: 30,
+      damping: 25,
       stiffness: 1000
     }
   },
   exit: {
     y: "-5vh",
-    opacity: 0
+    // opacity: 0
   }
 }
 const LoginPanel = ({ onClose, title = "Login - TechLit Emporium" }) => {
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [loginValidation, setloginValidation] = useState("");
 
   const handleLogin = () => {
-    setIsLoggedIn(!isLoggedIn);
+    setloginValidation("Login");
   };
 
   const handleSignUp = () => {
-    setIsLoggedIn(!isLoggedIn);
+    setloginValidation("Sign Up");
   };
+
+  useEffect(()=>{
+    return () =>{
+      setloginValidation("Login")
+    }
+  }, []);
+
   useEffect(() => {
     const originalTitle = document.title;
     document.title = title;
     return () => {
-        document.title = originalTitle;
+      document.title = originalTitle;
     };
-}, [title])
+  }, [title])
   return (
     <div className='Login-holder'>
       <div className="Login-container" onClick={onClose}></div>
@@ -56,7 +62,7 @@ const LoginPanel = ({ onClose, title = "Login - TechLit Emporium" }) => {
         whileHover={{
           rotate: 90
         }}
-      ><FontAwesomeIcon icon={faXmark} size="2xl" /></m.button>
+      ><Icon icon={faXmark} size="2xl" /></m.button>
       <m.div
         className="Login-panel"
         variants={dropIn}
@@ -80,11 +86,11 @@ const LoginPanel = ({ onClose, title = "Login - TechLit Emporium" }) => {
         </div>
         <div className="Credentials">
           <div className="Logo-holder">
-            <Link className='Login-logo'>
+            <div className='Login-logo'>
               <Logo />
-            </Link>
+            </div>
           </div>
-          {isLoggedIn ? <Login /> : <SignUp />}
+          {loginValidation === "Login" ? <Login /> : <SignUp />}
         </div>
       </m.div>
     </div>

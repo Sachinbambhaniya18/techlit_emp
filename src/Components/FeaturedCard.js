@@ -1,7 +1,8 @@
+// import { motion as m} from 'framer-motion';
 import React from 'react'
 
 const FeaturedCard = ({ src, name, price, mrp, classCard, isDarkMode}) => {
-
+  
   const displayName = name.length > 27 ? `${name.slice(0, 27)}...` : name;
   const num = (number) =>{
     return number.toLocaleString();

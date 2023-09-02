@@ -25,6 +25,7 @@
     left: 42rem;
     bottom: 17.5rem;
     z-index: 7;
+    /* transition: all 50ms ease-in-out; */
 }
 .Login-panel{
     display: flex;
@@ -39,6 +40,7 @@
     z-index: 7;
     font-family: var(--global-font);
     font-weight: 300;
+    /* transition: all 50ms ease-in-out; */
 }
 
 .Info{

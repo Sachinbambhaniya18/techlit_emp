@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
 
 import { Route, Routes, Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMagnifyingGlass, faShoppingCart, faBars, faArrowRightToBracket } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome';
+import { faMagnifyingGlass, faShoppingCart, faBars } from '@fortawesome/free-solid-svg-icons';              // , faArrowRightToBracket
 import { Dark, Light } from '../Components/svg icons/Themes';
-import { faUser } from '@fortawesome/free-regular-svg-icons';
+// import { faUser } from '@fortawesome/free-regular-svg-icons';
 import Cart from '../Header Pages/Cart';
 import Home from '../Nav Pages/Home';
 import Television from '../Nav Pages/Television';
@@ -23,15 +23,23 @@ const MainInterface = () => {
     const [isLogin, setIsLogin] = useState(false);
     const [showNavbar, setShowNavbar] = useState(false);
 
-    const showHideElement = (setter, cssClass) => {
-        setter(prevValue => !prevValue);
-        document.body.classList.toggle(cssClass);
-    };
+    const showNav = () => {
+        setShowNavbar(!showNavbar)
+        document.body.classList.add("Scroll-Lock");
+    }
+    const closeNav = () => {
+        setShowNavbar(!showNavbar)
+        document.body.classList.remove("Scroll-Lock");
+    }
+    const showLoginPanel = () => {
+        setIsLogin(!isLogin)
+        document.body.classList.add("Scroll-Lock");
+    }
+    const closeLoginPanel = () => {
+        setIsLogin(!isLogin)
+        document.body.classList.remove("Scroll-Lock");
+    }
 
-    const showNav = () => showHideElement(setShowNavbar, 'Scroll-Lock');
-    const closeNav = () => showHideElement(setShowNavbar, 'Scroll-Lock');
-    const showLoginPanel = () => showHideElement(setIsLogin, 'Scroll-Lock');
-    const closeLoginPanel = () => showHideElement(setIsLogin, 'Scroll-Lock');
 
     const getDarkModeState = () => {
         const storedState = localStorage.getItem('darkMode');
@@ -152,7 +160,7 @@ const MainInterface = () => {
         <header className={`Header-section`}>
             <div className={`Nav-Holder`}>
                 <div className={`Main ${isDarkMode ? 'Dark-Header' : 'Light-Header'}`}>
-                    <button className={`Nav-icon Nav-Position ${isDarkMode ? 'Dark-Text' : 'Light-Text'}`} onClick={showNav}><FontAwesomeIcon icon={faBars} size='xl' /></button>
+                    <button className={`Nav-icon Nav-Position ${isDarkMode ? 'Dark-Text' : 'Light-Text'}`} onClick={showNav}><Icon icon={faBars} size='xl' /></button>
                     {
                         showNavbar && <SlideInNavbar closeNav={closeNav} />
                     }
@@ -164,35 +172,35 @@ const MainInterface = () => {
                         <div className="Search-bar">
                             <input type="search" id="search-data" className={`finder ${isDarkMode ? 'Dark-input' : 'Light-input'}`} placeholder='Search your products, brands or more' />
                             <button className={`Mag-glass ${isDarkMode ? 'Dark-Mag' : 'Light-Mag'}`} >
-                                <FontAwesomeIcon icon={faMagnifyingGlass} size="m" />
+                                <Icon icon={faMagnifyingGlass} size="m" />
                             </button>
                         </div>
                     </form>
-                    <input type="checkbox" id="nav-user" />
+                    {/* <input type="checkbox" id="nav-user" />
                     <label htmlFor="nav-user" className={`User-Creds ${isDarkMode ? 'Dark-Text' : 'Light-Text'}`}>
-                        <FontAwesomeIcon icon={faUser} size='xl' />
+                        <Icon icon={faUser} size='xl' />
                     </label>
                     <div className='User-dialog'>
                         <ul>
                             <Link onClick={showLoginPanel} className='User-Options'>
                                 <li>
-                                    <FontAwesomeIcon icon={faArrowRightToBracket} size='s' />
+                                    <Icon icon={faArrowRightToBracket} size='s' />
                                     Login
                                 </li>
                             </Link>
                             <Link to="/Cart" className='User-Options'>
                                 <li>
-                                    <FontAwesomeIcon icon={faShoppingCart} size="s" />
+                                    <Icon icon={faShoppingCart} size="s" />
                                     Cart
                                 </li>
                             </Link>
                         </ul>
-                    </div>
+                    </div> */}
                     <button id='User-login' onClick={showLoginPanel}>Login</button>
                     {
                         isLogin && <LoginPanel onClose={closeLoginPanel} />
                     }
-                    <Link to="/Cart"><label className={`Cart ${isDarkMode ? 'Dark-Text' : 'Light-Text'}`}><FontAwesomeIcon icon={faShoppingCart} size="xl" /></label></Link>
+                    <Link to="/Cart"><label className={`Cart ${isDarkMode ? 'Dark-Text' : 'Light-Text'}`}><Icon icon={faShoppingCart} size="xl" /></label></Link>
                     <label onClick={handleTheme}>
                         {isDarkMode ? <Light /> : <Dark />}
                     </label>

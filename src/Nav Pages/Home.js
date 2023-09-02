@@ -28,7 +28,6 @@ const Home = ({ isDarkMode, title = "TechLit Emporium" }) => {
           <h1 className={`Title ${isDarkMode ? 'Dark-Title' : 'Light-Title'}`}>Featured</h1>
         </legend>
       <div className={`Featured ${isDarkMode ? 'Dark-Featured' : 'Light-Featured'}`}>
-        {/* <hr className='Separator' /> */}
         {   
             featuredData.map((featured, index)=>{
               return(

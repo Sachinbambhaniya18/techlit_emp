@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faXmark, faHome, faTv, faMobile, faLaptop, faMicrochip, faBook, faAddressBook } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome';
+import { faXmark, faHome, faTv, faMobile, faLaptop, faMicrochip, faBook, faAddressBook, faRightToBracket } from '@fortawesome/free-solid-svg-icons';
+// import { faUser } from '@fortawesome/free-regular-svg-icons';
 import { motion as m } from 'framer-motion';
 import { Logo } from './svg icons/logo';
 const SlideInNavbar = ({ closeNav, dropIn, isDarkMode }) => {
-
+    
     const [navFocus, setNavFocus] = useState(null)
 
     const handleNavClick = (page) => {
@@ -69,10 +70,15 @@ const SlideInNavbar = ({ closeNav, dropIn, isDarkMode }) => {
                     damping: 25,
                     stiffness: 500
                 }}>
+                {/* <div className="User-Creds">
+                </div> */}
                 <div className="Slide-Logo-Holder">
                     <Link className='Slide-Logo'>
                         <Logo />
                     </Link>
+                    <button className='User-Creds'>
+                        <Icon icon={faRightToBracket} />
+                    </button>
                 </div>
                 {
                     slideNavPaths.map((slidePath) => {
@@ -80,7 +86,7 @@ const SlideInNavbar = ({ closeNav, dropIn, isDarkMode }) => {
                         <Link to={slidePath.path}
                                 onClick={() => handleNavClick(slidePath.name)}
                                 className={`Slider-Nav ${navFocus === slidePath.name ? 'Active' : ''}`}>
-                                <FontAwesomeIcon icon={slidePath.icon} size="xs" className={slidePath.classes} />
+                                <Icon icon={slidePath.icon} size="xs" className={slidePath.classes} />
                                 {slidePath.name}</Link>
                         )
                     })
@@ -102,7 +108,7 @@ const SlideInNavbar = ({ closeNav, dropIn, isDarkMode }) => {
                 whileHover={{
                     rotate: 90
                 }}
-            ><FontAwesomeIcon icon={faXmark} size="2xl" /></m.button>
+            ><Icon icon={faXmark} size="2xl" /></m.button>
         </div>
     )
 }

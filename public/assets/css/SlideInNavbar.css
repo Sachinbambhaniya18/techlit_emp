@@ -29,16 +29,33 @@
 }
 a.Active{
     background-color: var(--primary-day-clr);
-    box-shadow: inset 0 0 15px #402b57;
+    box-shadow: inset 0 0 30px 10px #261935;
     border: none !important;
-    transition: all 100ms ease-in-out;
+    transition: all 200ms ease-in-out;
 }
 .Slide-Logo{
     position: relative;
     height: 200px;
     width: 200px;
-    /* margin-left: 3rem; */
+    left: 1.2rem;
     z-index: 2;
+}
+.User-Creds{
+    background-color: transparent;
+    color: var(--text-night-clr);
+    border: none;
+    /* height: 30px;
+    width: 30px; */
+    font-size: 1.7rem;
+    align-self: flex-start;
+    position: relative;
+    padding: 0.5rem 0.8rem;
+    /* outline: 2px solid var(--text-night-clr);
+    outline-offset: 0.05rem; */
+    top: 1.2rem;
+    right: .2rem;
+    /* border-radius: 5px; */
+    /* border: 2px solid var(--text-night-clr); */
 }
 .Slide-Logo::after{
     position: absolute;

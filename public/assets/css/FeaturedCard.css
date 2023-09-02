@@ -42,6 +42,7 @@
             font-weight: 300;
         }
     }
+
     &:hover img {
         filter: brightness(0.6);
         scale: 1.05;
@@ -95,14 +96,6 @@ h3 span {
 .Card5 img {
     object-fit: fill;
 }
-.Card1:hover .Displayer,
-.Card2:hover .Displayer,
-.Card3:hover .Displayer,
-.Card4:hover .Displayer,
-.Card5:hover .Displayer {
-    top: 50%;
-    height: 50%;
-}
 
 .Displayer {
     position: absolute;
@@ -114,10 +107,17 @@ h3 span {
     align-items: flex-start;
     justify-content: center;
     flex-direction: column;
-    border-radius: 2px;
+    border-bottom-right-radius: 2px;
+    border-bottom-left-radius: 2px;
     overflow: hidden;
-    filter: brightness(1);
+    backdrop-filter: blur(6px);
     transition: all 400ms ease-in-out;
+
+    /* & h1,
+    & h3,
+    & button {
+        opacity: 0;
+    } */
 
     & button {
         height: 2.5em;
@@ -156,6 +156,37 @@ h3 span {
         }
     }
 }
+
+.Card1:hover .Displayer,
+.Card2:hover .Displayer,
+.Card3:hover .Displayer,
+.Card4:hover .Displayer,
+.Card5:hover .Displayer {
+    top: 50%;
+    height: 50%;
+}
+
+/* .Card1:hover .Displayer h1,
+.Card1:hover .Displayer h3,
+.Card1:hover .Displayer button,
+.Card2:hover .Displayer h1,
+.Card2:hover .Displayer h3,
+.Card2:hover .Displayer button,
+.Card3:hover .Displayer h1,
+.Card3:hover .Displayer h3,
+.Card3:hover .Displayer button,
+.Card4:hover .Displayer h1,
+.Card4:hover .Displayer h3,
+.Card4:hover .Displayer button,
+.Card5:hover .Displayer h1,
+.Card5:hover .Displayer h3,
+.Card5:hover .Displayer button {
+    opacity: 1;
+    transition-property: all;
+    transition-duration: 100ms;
+    transition: ease-in-out;
+    transition-delay: 200ms;
+} */
 
 .Light-Card {
     color: var(--text-night-clr);

@@ -4,7 +4,7 @@ import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome';
 import { faXmark, faHome, faTv, faMobile, faLaptop, faMicrochip, faBook, faAddressBook, faRightToBracket } from '@fortawesome/free-solid-svg-icons';
 // import { faUser } from '@fortawesome/free-regular-svg-icons';
 import { motion as m } from 'framer-motion';
-import { Logo } from './svg icons/logo';
+import { Logo } from '../Components/svg icons/logo';
 const SlideInNavbar = ({ closeNav, dropIn, isDarkMode }) => {
     
     const [navFocus, setNavFocus] = useState(null)

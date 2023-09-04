@@ -15,7 +15,7 @@ import Books from '../Nav Pages/Books';
 import AboutUs from '../Nav Pages/AboutUs';
 import LoginPanel from '../Header Pages/LoginPanel';
 import NotFound from '../Nav Pages/NotFound';
-import SlideInNavbar from '../Components/SlideInNavbar';
+import SlideInNavbar from '../Nav Pages/SlideInNavbar';
 import { Logo } from '../Components/svg icons/logo';
 // import { AnimatePresence } from 'framer-motion';
 

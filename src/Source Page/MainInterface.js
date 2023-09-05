@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 
 import { Route, Routes, Link } from 'react-router-dom';
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome';
-import { faMagnifyingGlass, faShoppingCart, faBars } from '@fortawesome/free-solid-svg-icons';              // , faArrowRightToBracket
+import { faMagnifyingGlass, faShoppingCart, faBars, faXmark } from '@fortawesome/free-solid-svg-icons';              // , faArrowRightToBracket
 import { Dark, Light } from '../Components/svg icons/Themes';
 // import { faUser } from '@fortawesome/free-regular-svg-icons';
 import Cart from '../Header Pages/Cart';
@@ -22,7 +22,8 @@ import { Logo } from '../Components/svg icons/logo';
 const MainInterface = () => {
     const [isLogin, setIsLogin] = useState(false);
     const [showNavbar, setShowNavbar] = useState(false);
-
+    const [search, setSearch] = useState({ input : '', visibility : "hidden" })
+    
     const showNav = () => {
         setShowNavbar(!showNavbar)
         document.body.classList.add("Scroll-Lock");
@@ -34,13 +35,22 @@ const MainInterface = () => {
     const showLoginPanel = () => {
         setIsLogin(!isLogin)
         document.body.classList.add("Scroll-Lock");
+        
     }
     const closeLoginPanel = () => {
         setIsLogin(!isLogin)
         document.body.classList.remove("Scroll-Lock");
     }
-
-
+    var inputValue;
+    const handleSearch = (e) =>{
+        inputValue = e.target.value;
+        setSearch({
+            input: inputValue,
+            visibility: inputValue !== '' ? 'visible' : 'hidden'})
+    }
+    const handleSearchReset = () =>{
+        setSearch({ input : '', visibility : 'hidden'})
+    }
     const getDarkModeState = () => {
         const storedState = localStorage.getItem('darkMode');
         return storedState ? JSON.parse(storedState) : false;
@@ -170,32 +180,20 @@ const MainInterface = () => {
                     </Link>
                     <form action="" method="get">
                         <div className="Search-bar">
-                            <input type="search" id="search-data" className={`finder ${isDarkMode ? 'Dark-input' : 'Light-input'}`} placeholder='Search your products, brands or more' />
+                            <input type="search" id="search-data" 
+                            className={`finder ${isDarkMode ? 'Dark-input' : 'Light-input'}`} 
+                            placeholder='Search your products, brands or more' 
+                            onChange={handleSearch}
+                            value={search.input}/>
+                            {
+                                search.visibility === 'visible' && 
+                                <Icon icon={faXmark} size="s" className={`Cancel-Button ${isDarkMode ? 'Dark-input' : 'Light-input'}`} onClick={handleSearchReset}/> 
+                            }
                             <button className={`Mag-glass ${isDarkMode ? 'Dark-Mag' : 'Light-Mag'}`} >
                                 <Icon icon={faMagnifyingGlass} size="m" />
                             </button>
                         </div>
                     </form>
-                    {/* <input type="checkbox" id="nav-user" />
-                    <label htmlFor="nav-user" className={`User-Creds ${isDarkMode ? 'Dark-Text' : 'Light-Text'}`}>
-                        <Icon icon={faUser} size='xl' />
-                    </label>
-                    <div className='User-dialog'>
-                        <ul>
-                            <Link onClick={showLoginPanel} className='User-Options'>
-                                <li>
-                                    <Icon icon={faArrowRightToBracket} size='s' />
-                                    Login
-                                </li>
-                            </Link>
-                            <Link to="/Cart" className='User-Options'>
-                                <li>
-                                    <Icon icon={faShoppingCart} size="s" />
-                                    Cart
-                                </li>
-                            </Link>
-                        </ul>
-                    </div> */}
                     <button id='User-login' onClick={showLoginPanel}>Login</button>
                     {
                         isLogin && <LoginPanel onClose={closeLoginPanel} />

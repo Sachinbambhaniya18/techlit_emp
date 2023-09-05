@@ -44,6 +44,10 @@ nav {
   grid-template-rows: 1fr;
   gap: 1.2rem;
 }
+input[type="search"]::-webkit-search-cancel-button {
+  display: none;
+}
+
 .Dark-Header{
   background-color: rgba(106, 61, 128, 0.6);
 
@@ -86,6 +90,7 @@ nav {
 }
 
 .Search-bar {
+  position: relative;
   display: flex;
   align-items: center;
   border-radius: 10px;
@@ -115,7 +120,12 @@ nav {
     outline: none;
   }
 }
-
+.Cancel-Button{
+  position: absolute;
+  right: 3.5rem;
+  cursor: pointer;
+  color: var(--text-night-clr);
+}
 .Mag-glass {
   height: 2.7rem;
   width: 45px;

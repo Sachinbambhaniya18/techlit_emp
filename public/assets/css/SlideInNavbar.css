@@ -29,7 +29,7 @@
 }
 a.Active{
     background-color: var(--primary-day-clr);
-    box-shadow: inset 0 0 30px 10px #261935;
+    box-shadow: inset 0 0 20px 5px #261935;
     border: none !important;
     transition: all 200ms ease-in-out;
 }

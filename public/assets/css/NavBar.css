@@ -53,7 +53,7 @@ input[type="search"]::-webkit-search-cancel-button {
 
 }
 .Light-Header{
-  background-color: rgba(106, 61, 128, 0.8);
+  background-color: rgba(106, 61, 128, 0.862);
 
 }
 .Logo {
@@ -124,7 +124,17 @@ input[type="search"]::-webkit-search-cancel-button {
   position: absolute;
   right: 3.5rem;
   cursor: pointer;
+  height: 17px;
+  width: 17px;
+  border-radius: 50%;
   color: var(--text-night-clr);
+  
+  
+  &:hover{
+    right: 2.5rem;
+    padding: 1rem;
+    background-color: #5d3e7e88;
+  }
 }
 .Mag-glass {
   height: 2.7rem;
@@ -160,7 +170,7 @@ input[type="search"]::-webkit-search-cancel-button {
 }
 
 .Dark-Mag:hover {
-  background-color: #1b0d1c7b;
+  background-color: #1b0d1cad;
 }
 
 .Light-Mag {
@@ -253,6 +263,18 @@ nav a:focus, nav a:focus-within{
   font-size: 1.1rem;
   background-color: transparent;
   display: none;
+}
+.Not-Found{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+
+  & p{
+    font-family: inherit;
+    font-size: 3rem;
+  }
 }
 @media screen and (max-width: 1001px) {
 

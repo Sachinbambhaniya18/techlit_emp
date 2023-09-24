@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
-import { Link } from 'react-router-dom'
+
 const Cart = ({isDarkMode, title}) => {
+  
   useEffect(()=>{
     document.title = title;
   }, [title])
@@ -10,7 +11,6 @@ const Cart = ({isDarkMode, title}) => {
         <img src="/assets/images/cart/Empty_Shopping_Cart.png" alt="product" />
         <h1>Looking for your items?</h1>
         <p>Login or Sign Up to access your cart.</p>
-        <Link to="/LoginPanel"><button className='Glow-up'>Login</button></Link>
         </div>
     </div>
   )

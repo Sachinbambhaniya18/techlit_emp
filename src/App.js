@@ -1,9 +1,9 @@
 import './App.css';
-import MainInterface from './Source Page/MainInterface';
+import NavBar from './Source Page/NavBar';
 const App = () => {
   return (
     <div className="App">
-      <MainInterface/>
+      <NavBar/>
     </div>
   );
 }

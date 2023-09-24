@@ -1,15 +1,16 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome';
 import { faXmark, faHome, faTv, faMobile, faLaptop, faMicrochip, faBook, faAddressBook, faRightToBracket } from '@fortawesome/free-solid-svg-icons';
 // import { faUser } from '@fortawesome/free-regular-svg-icons';
 import { motion as m } from 'framer-motion';
 import { Logo } from '../Components/svg icons/logo';
-const SlideInNavbar = ({ closeNav, dropIn, isDarkMode }) => {
+const SlideInNavbar = ({ closeNav, dropIn }) => {
     
     const [navFocus, setNavFocus] = useState(null)
 
-    const handleNavClick = (page) => {
+    const handleNavClick = page => {
         setNavFocus(page);
     }
     const slideNavPaths = [
@@ -62,7 +63,7 @@ const SlideInNavbar = ({ closeNav, dropIn, isDarkMode }) => {
             <m.div
                 className="Slide-Options"
                 initial={{ width: 0 }}
-                animate={{ width: "70vw" }}
+                animate={{ width: "75vw" }}
                 exit={{ width: 0 }}
                 transition={{
                     duration: 0.7,
@@ -80,6 +81,7 @@ const SlideInNavbar = ({ closeNav, dropIn, isDarkMode }) => {
                         <Icon icon={faRightToBracket} />
                     </button>
                 </div>
+                
                 {
                     slideNavPaths.map((slidePath) => {
                         return (

@@ -14,7 +14,7 @@
     position: absolute;
     height: 100vh;
     width: 100vw;
-    background-color: rgba(38, 16, 41, 0.425);
+    background-color: rgba(38, 16, 41, 0.52);
     z-index: 6;
 }
 .Jump-back{
@@ -40,7 +40,8 @@
     z-index: 7;
     font-family: var(--global-font);
     font-weight: 300;
-    /* transition: all 50ms ease-in-out; */
+    box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.2),
+                0 12px 30px 0 rgba(0, 0, 0, 0.19);
 }
 
 .Info{
@@ -115,6 +116,8 @@ h2{
     color: rgb(255, 64, 0);
     font-size: 0.6rem;
     margin-top: 0;
+    margin-bottom: 0;
+    display: block;
 }
 
 .Event-button{
@@ -123,7 +126,7 @@ h2{
     justify-content: center;
     margin-top: 2rem;
 }
-.Otp-button{
+.Submit-button{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -141,7 +144,7 @@ h2{
 .Reset-link:hover{
     border-bottom: 1px solid var(--accent-day-clr);
 }
-.Log-in, .Otp{
+.Log-in, .Submit{
     border: none;
     background-color: var(--accent-day-clr);
     color: var(--background-day-clr);
@@ -153,7 +156,7 @@ h2{
     border-radius: 1rem;
     transition: all 0.3s;
 }
-.Log-in:hover, .Otp:hover{
+.Log-in:hover, .Submit:hover{
     background-color: white;
     color: var(--accent-day-clr);
     box-shadow: 
@@ -162,7 +165,10 @@ h2{
     text-shadow: 0px 0px 5px var(--accent-night-clr);
 
 }
-
+/* #SignUp-Mob::-webkit-inner-spin-button,
+#SignUp-Mob::-webkit-outer-spin-button{
+    display: none;
+} */
 @media screen and (max-width: 1024px) {
     .Login-panel{
         height: 540px;

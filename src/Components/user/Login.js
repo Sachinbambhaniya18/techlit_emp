@@ -1,31 +1,32 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 const Login = () => {
-    const emailRegex = /^([^\s@]+@[^\s@]+\.[^\s@]+|\d{9})$/;
-
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/i;
+    const emailRef = useRef()
     const [email, setEmail] = useState('');
     const [error, setError] = useState('');
     
     const isValid = (e) => {
-        setEmail(e.target.value);
+        const inputVal = e.target.value;
+        setEmail(inputVal);
         if (emailRegex.test(email) === false) {
-            setError('Please enter a valid Email or Phone Number');
+            return setError('Please enter a valid Email or Phone Number');
 
         } else {
-            setError('');
-            return true;
+            return setError('')
         }
     }
+    useEffect(()=> emailRef.current.focus(), [])
     return (
         <>
-            <form action="" >
+            <form action="">
                 <div>
-                    <label htmlFor="Userid" className='Alignment'>Email or Mobile Number</label><br />
-                    <input type="text" id="Userid" className='Alignment Input-Field' required onChange={isValid} />
+                    <label htmlFor="signup-email" className='Alignment'>Enter your Email</label><br />
+                    <input type="email" ref={emailRef} id="signup-email" className='Alignment Input-Field' name="email" required onChange={isValid} />
                     <label htmlFor="" className='Error-message Alignment'>{error}</label><br />
                     <label htmlFor="Password" className='Alignment'>Enter your password</label><br />
-                    <input type="password" id="Password" className='Alignment Input-Field' required /><br /><br />
+                    <input type="password" id="Password" className='Alignment Input-Field' name="password" required /><br /><br />
                     <label className="Reset-message">Forgot Password? <Link to="/Login" className='Reset-link'>Click here</Link> to reset it.</label>
                     <div className="Event-button">
                         <input type="submit" value="Login" className='Log-in' />

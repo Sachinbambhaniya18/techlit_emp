@@ -111,6 +111,7 @@ h3 span {
     border-bottom-left-radius: 2px;
     overflow: hidden;
     backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
     transition: all 400ms ease-in-out;
 
     /* & h1,
@@ -190,11 +191,12 @@ h3 span {
 
 .Light-Card {
     color: var(--text-night-clr);
-    box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.2),
+                0 2px 10px 0 rgba(0, 0, 0, 0.19);
 }
 
 .Dark-Card {
     color: var(--text-night-clr);
-    box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, 0.5);
-
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+                0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }

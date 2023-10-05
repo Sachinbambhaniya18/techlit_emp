@@ -27,11 +27,14 @@
     justify-content: center;
     /* border-bottom: 2px solid var(--text-day-clr); */
 }
-a.Active{
+.active-s{
     background-color: var(--primary-day-clr);
     box-shadow: inset 0 0 20px 5px #261935;
     border: none !important;
     transition: all 200ms ease-in-out;
+}
+.Nav-paths{
+    width: 100%;
 }
 .Slide-Logo{
     position: relative;
@@ -39,6 +42,28 @@ a.Active{
     width: 200px;
     left: 1.2rem;
     z-index: 2;
+}
+.Nav-options{
+    margin-bottom: 1rem;
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    flex-direction: column;
+
+    & a{
+        /* position: absolute; */
+        padding: 1rem 0rem 1rem 4rem;
+        width: 100%;
+        text-align: left;
+        
+    }
+    & svg{
+        position: absolute;
+        left: 2rem;
+        top: 1.35rem;
+    }
 }
 .User-Creds{
     background-color: transparent;
@@ -75,10 +100,10 @@ a.Slider-Nav{
     
 }
 .Slide-Options{
-    /* display: flex;
-    /*align-items: flex-start;
+    display: flex;
+    align-items: center;
     justify-content: center;
-    flex-direction: column; */
+    flex-direction: column; 
     height: 100vh;
     border-top: 2px solid black;
     border-right: 2px solid black;
@@ -92,19 +117,21 @@ a.Slider-Nav{
         color: var(--text-night-clr);
         border-bottom: 2px solid var(--primary-day-clr);
         /* border-right: 1px solid var(--primary-day-clr); */
-        border-radius: 15px;
-        margin: 0 1rem 0.4rem 1rem;
+        border-radius: 10px;
+        /* margin: 0 1rem 0.4rem 1rem; */
     }
 }
 .Footer{
     color: rgb(190, 184, 184);
     font-weight: 200;
     font-size: 0.8rem;
-    margin-top: 2rem;
+    /* margin-top: 2rem; */
     letter-spacing: 1px;
-    margin-bottom: 5rem;
+    /* margin-bottom: 5rem; */
 }
-.Gap{
+
+
+/* .Gap{
     margin-right: 1rem;
 }
 .Gap-Mob{
@@ -115,7 +142,7 @@ a.Slider-Nav{
     margin-right: 0.9rem;
 }
 .Gap-Elec{
-    /* margin-left: 0.3rem; */
+    margin-left: 0.3rem;
     margin-right: 1.2rem;
 }
 .Gap-Book{
@@ -123,7 +150,7 @@ a.Slider-Nav{
 }
 .Gap-Abt{
     margin-right: 1.2rem;
-}
+} */
 .Close-Nav{
     border: none;
     background-color: transparent;

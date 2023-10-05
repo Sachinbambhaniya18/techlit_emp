@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React from 'react';
+import { NavLink, Link } from 'react-router-dom';
 
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome';
 import { faXmark, faHome, faTv, faMobile, faLaptop, faMicrochip, faBook, faAddressBook, faRightToBracket } from '@fortawesome/free-solid-svg-icons';
@@ -8,52 +8,40 @@ import { motion as m } from 'framer-motion';
 import { Logo } from '../Components/svg icons/logo';
 const SlideInNavbar = ({ closeNav, dropIn }) => {
     
-    const [navFocus, setNavFocus] = useState(null)
-
-    const handleNavClick = page => {
-        setNavFocus(page);
-    }
     const slideNavPaths = [
         {
             path: "/",
             name: "Home",
-            classes: "Gap",
             icon: faHome
         },
         {
             path: "/Tvs",
             name: "Television",
-            classes: "Gap",
             icon: faTv
         },
         {
             path: "/SmartPhones",
             name: "Smart Phones",
-            classes: "Gap-Mob",
             icon: faMobile
         },
         {
             path: "/Computers",
             name: "Desktops/Laptops",
-            classes: "Gap-Lap",
             icon: faLaptop
         },
         {
             path: "/Electronics",
             name: "Electronics",
-            classes: "Gap-Elec",
             icon: faMicrochip
         },
         {
             path: "/Books",
             name: "Books",
-            classes: "Gap-Book",
             icon: faBook
         },
         {
             path: "/AboutUs",
             name: "About Us",
-            classes: "Gap-Abt",
             icon: faAddressBook
         }
     ]
@@ -81,19 +69,19 @@ const SlideInNavbar = ({ closeNav, dropIn }) => {
                         <Icon icon={faRightToBracket} />
                     </button>
                 </div>
-                
                 {
                     slideNavPaths.map((slidePath) => {
                         return (
-                        <Link to={slidePath.path}
-                                onClick={() => handleNavClick(slidePath.name)}
-                                className={`Slider-Nav ${navFocus === slidePath.name ? 'Active' : ''}`}>
-                                <Icon icon={slidePath.icon} size="xs" className={slidePath.classes} />
-                                {slidePath.name}</Link>
+                        <div className='Nav-options'>
+                            <NavLink to={slidePath.path} className={({isActive})=>(isActive ? 'active-s' : '')}
+                            >
+                                    <Icon icon={slidePath.icon} size="xs" />
+                                    {slidePath.name}</NavLink> 
+                        </div>
                         )
                     })
                 }
-
+                                {/*className={`Slider-Nav ${navFocus === slidePath.name ? 'Active' : ''}`} */}
                 <p className="Footer">
                     TechLit Emporium
                     &#169; 2023,<br />

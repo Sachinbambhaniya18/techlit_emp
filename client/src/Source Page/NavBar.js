@@ -1,5 +1,5 @@
 import React, { useState, useEffect, createContext } from 'react';
-import { Route, Routes, Link } from 'react-router-dom';
+import { Route, Routes, Link, NavLink } from 'react-router-dom';
 import { FontAwesomeIcon as Icon } from '@fortawesome/react-fontawesome';
 import { faMagnifyingGlass, faShoppingCart, faBars, faXmark } from '@fortawesome/free-solid-svg-icons';              // , faArrowRightToBracket
 import { Dark, Light } from '../Components/svg icons/Themes';
@@ -13,7 +13,7 @@ import Books from '../Nav Pages/Books';
 import AboutUs from '../Nav Pages/AboutUs';
 import LoginPanel from '../User Pages/LoginPanel';
 import NotFound from '../Nav Pages/NotFound';
-import SlideInNavbar from '../Nav Pages/SlideInNavbar';
+import SlideInNavbar from './SlideInNavbar';
 import { Logo } from '../Components/svg icons/logo';
 
 export const UserContext = createContext()
@@ -210,12 +210,13 @@ const NavBar = () => {
                         {
                             navPaths.map((navPath) => {
                                 return (
-                                    <Link to={navPath.path}
+                                    <NavLink to={navPath.path}
                                         style={handleNavBar}
                                         key={navPath.path}
+                                        className={({isActive})=>(isActive ? 'active' : null)}
                                     >
                                         {navPath.name}
-                                    </Link>
+                                    </NavLink>
                                 )
                             })
                         }
